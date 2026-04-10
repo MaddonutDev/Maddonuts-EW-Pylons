@@ -1,0 +1,17 @@
+#define IDD_MDJAM_GUI 16000
+#define IDC_MDIH_GUI_Map 16005
+
+#define IDC_MDJAM_GUI_PylonSelectText 16010
+#define IDC_MDJAM_GUI_PylonSelectFrame 16015
+#define IDC_MDJAM_GUI_PylonSelectBtn 16020
+
+#define IDC_MDJAM_GUI_PylonStateText 16025
+#define IDC_MDJAM_GUI_PylonStateFrame 16030
+
+#define IDC_MDJAM_GUI_PylonModeSelectText 16035
+#define IDC_MDJAM_GUI_PylonModeSelectFrame 16040
+#define IDC_MDJAM_GUI_PylonModeSelectBtn 16045
+
+#define IDC_MDJAM_GUI_PylonActivateSelectText 16050
+#define IDC_MDJAM_GUI_PylonActivateSelectFrame 16051
+#define IDC_MDJAM_GUI_PylonActivateSelectBtn 16052
