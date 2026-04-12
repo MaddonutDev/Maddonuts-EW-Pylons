@@ -49,9 +49,10 @@ private _vehicles = nearestObjects [_pos, ["AllVehicles"], _radius];
 
             if (_jam && (_jammerCount isEqualTo 0)) then {   
                 _jammedWeapons pushBack [_x, _turretPath];
-                _veh removeWeaponTurret [_x, _turretPath];
-                _veh enableVehicleSensor ["PassiveRadarSensorComponent", false];
-                _veh enableVehicleSensor ["ActiveRadarSensorComponent", false];
+                [_veh, [_x, _turretPath]] remoteExecCall ["removeWeaponTurret", _veh];
+                //_veh removeWeaponTurret [_x, _turretPath];
+                //_veh enableVehicleSensor ["PassiveRadarSensorComponent", false];
+                //_veh enableVehicleSensor ["ActiveRadarSensorComponent", false];
             };
 
         } forEach (_veh weaponsTurret _x);
@@ -74,11 +75,12 @@ private _vehicles = nearestObjects [_pos, ["AllVehicles"], _radius];
 
                 {
                     _x params ["_weaponName", "_turretPath"];
-                    _veh addWeaponTurret [_weaponName, _turretPath];
+                    [_veh, [_weaponName, _turretPath]] remoteExecCall ["addWeaponTurret", _veh];
+                    //_veh addWeaponTurret [_weaponName, _turretPath];
                 } forEach _jammedWeapons;
 
-                _veh enableVehicleSensor ["PassiveRadarSensorComponent", true];
-                _veh enableVehicleSensor ["ActiveRadarSensorComponent", true];
+                //_veh enableVehicleSensor ["PassiveRadarSensorComponent", true];
+                //_veh enableVehicleSensor ["ActiveRadarSensorComponent", true];
                 _veh setVariable ["MDJAM_jammedWeapons", nil];
             };
 
