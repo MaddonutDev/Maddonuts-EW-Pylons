@@ -60,7 +60,7 @@ private _vehicles = nearestObjects [_pos, ["AllVehicles"], _radius];
 
     if (_jammedWeapons isNotEqualTo []) then {
         _jammerCount = _jammerCount + 1;
-        _veh setVariable ["MDJAM_JammerCount", _jammerCount];
+        _veh setVariable ["MDJAM_JammerCount", _jammerCount, true];
 
         [_F18, _selectedPylon, _veh, _radius] spawn {
             params ["_F18", "_selectedPylon", "_veh", "_radius"];
@@ -81,14 +81,14 @@ private _vehicles = nearestObjects [_pos, ["AllVehicles"], _radius];
 
                 //_veh enableVehicleSensor ["PassiveRadarSensorComponent", true];
                 //_veh enableVehicleSensor ["ActiveRadarSensorComponent", true];
-                _veh setVariable ["MDJAM_jammedWeapons", nil];
+                _veh setVariable ["MDJAM_jammedWeapons", nil, true];
             };
 
             private _jammerCount = _veh getVariable ["MDJAM_JammerCount", 0];
             _jammerCount = (_jammerCount - 1) max 0;
-            _veh setVariable ["MDJAM_JammerCount", _jammerCount];
+            _veh setVariable ["MDJAM_JammerCount", _jammerCount, true];
         };
     };
 
-    _veh setVariable ["MDJAM_jammedWeapons", _jammedWeapons];
+    _veh setVariable ["MDJAM_jammedWeapons", _jammedWeapons, true];
 } forEach _vehicles;

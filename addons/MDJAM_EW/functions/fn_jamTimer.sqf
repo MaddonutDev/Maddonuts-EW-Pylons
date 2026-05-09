@@ -22,7 +22,7 @@ waitUntil {(_stopJamTime < time) || ((_F18 getVariable ["MDJAM_PylonStates", []]
 private _markers = _F18 getVariable ["MDJAM_Markers", []];
 private _markerIndex = _markers findIf {(_x #0) isEqualTo _selectedPylon};
 _markers deleteAt _markerIndex;
-_F18 setVariable ["MDJAM_Markers", _markers];
+_F18 setVariable ["MDJAM_Markers", _markers, true];
 deleteMarkerLocal _jammerAreaMark;
 
 [_F18, _selectedPylon, _stopJamTime] call MDJAM_fnc_cooldown;

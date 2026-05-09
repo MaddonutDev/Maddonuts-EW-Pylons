@@ -18,7 +18,7 @@ params ["_control", "_pylonNum"];
 
 private _F18 = (vehicle player);
 
-_F18 setVariable ["MDJAM_SelectedPylon", _pylonNum];
+_F18 setVariable ["MDJAM_SelectedPylon", _pylonNum, true];
 private _pylonStates = _F18 getVariable ["MDJAM_PylonStates", []];
 
 //Setup which GUI elements to show

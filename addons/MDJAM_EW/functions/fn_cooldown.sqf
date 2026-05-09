@@ -19,11 +19,11 @@ params ["_F18", "_selectedPylon", "_stopJamTime"];
 
 private _pylonStates = _F18 getVariable ["MDJAM_PylonStates", []];
 _pylonStates set [_selectedPylon, 3];
-_F18 setVariable ["MDJAM_PylonStates", _pylonStates];
+_F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];
 
 private _jamPoses = _F18 getVariable ["MDJAM_PylonsJamPos", []];
 _jamPoses set [_selectedPylon, [-100000,-100000,100000]];
-_F18 setVariable ["MDJAM_PylonsJamPos", _jamPoses];
+_F18 setVariable ["MDJAM_PylonsJamPos", _jamPoses, true];
 
 ((_F18 getVariable ["MDJAM_PylonData", []]) #_selectedPylon) params [["_podType", ""], ["_activeTime", 0], ["_cooldownTime", 0], ["_radius", 0]];
 
@@ -35,4 +35,4 @@ sleep _cooldownTime;
 
 private _pylonStates = _F18 getVariable ["MDJAM_PylonStates", []];
 _pylonStates set [_selectedPylon, 0];
-_F18 setVariable ["MDJAM_PylonStates", _pylonStates];
+_F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];

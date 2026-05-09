@@ -52,12 +52,12 @@ private _pylonData = [];
     };
 } forEach [5, 7, 10, 6, 4];
 
-_F18 setVariable ["MDJAM_PylonStates", _pylonStates];
-_F18 setVariable ["MDJAM_PylonData", _pylonData];
-_F18 setVariable ["MDJAM_PylonModes", [-1, -1, -1, -1, -1]];
-_F18 setVariable ["MDJAM_SelectedPylon", -1];
-_F18 setVariable ["MDJAM_PylonsJamPos", [[-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000]]];
-_F18 setVariable ["MDJAM_PylonHasAutoThreat", [objNull, objNull, objNull, objNull, objNull]];
+_F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];
+_F18 setVariable ["MDJAM_PylonData", _pylonData, true];
+_F18 setVariable ["MDJAM_PylonModes", [-1, -1, -1, -1, -1], true];
+_F18 setVariable ["MDJAM_SelectedPylon", -1, true];
+_F18 setVariable ["MDJAM_PylonsJamPos", [[-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000], [-100000,-100000,100000]], true];
+_F18 setVariable ["MDJAM_PylonHasAutoThreat", [objNull, objNull, objNull, objNull, objNull], true];
 
 _F18 addEventHandler ["PylonChanged", {
 	params ["_F18", "_pylonIndex", "_oldMagazine", "_newMagazine"];
@@ -95,8 +95,8 @@ _F18 addEventHandler ["PylonChanged", {
         };
     } forEach [5, 7, 10, 6, 4];
 
-    _F18 setVariable ["MDJAM_PylonStates", _pylonStates];
-    _F18 setVariable ["MDJAM_PylonData", _pylonData];
+    _F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];
+    _F18 setVariable ["MDJAM_PylonData", _pylonData, true];
 }];
 
 _F18 addEventHandler ["IncomingMissile", {
@@ -106,5 +106,5 @@ _F18 addEventHandler ["IncomingMissile", {
     _incomingMissiles = _incomingMissiles select {_x isNotEqualTo objNull};
 
     _incomingMissiles pushBack _missile;
-    _F18 setVariable ["MDJAM_IncomingMissiles", _incomingMissiles];
+    _F18 setVariable ["MDJAM_IncomingMissiles", _incomingMissiles, true];
 }];

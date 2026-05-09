@@ -64,4 +64,4 @@ switch (_pylonMode) do {
 };
 
 _pylonStates set [_pylonNum, _pylonState];
-_F18 setVariable ["MDJAM_PylonStates", _pylonStates];
+_F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];

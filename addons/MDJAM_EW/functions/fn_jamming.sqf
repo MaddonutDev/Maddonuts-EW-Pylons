@@ -19,7 +19,7 @@ params ["_pos", "_selectedPylon"];
 private _F18 = (vehicle player);
 private _pylonStates = _F18 getVariable ["MDJAM_PylonStates", []];
 _pylonStates set [_selectedPylon, 2];
-_F18 setVariable ["MDJAM_PylonStates", _pylonStates];
+_F18 setVariable ["MDJAM_PylonStates", _pylonStates, true];
 
 ((_F18 getVariable ["MDJAM_PylonData", []]) #_selectedPylon) params [["_podType", ""], ["_activeTime", 0], ["_cooldownTime", 0], ["_radius", 0]];
 
@@ -32,11 +32,11 @@ _jammerAreaMark setMarkerSizeLocal [_radius, _radius];
 
 private _markers = _F18 getVariable ["MDJAM_Markers", []];
 _markers pushBack [_selectedPylon, _pos, _radius];
-_F18 setVariable ["MDJAM_Markers", _markers];
+_F18 setVariable ["MDJAM_Markers", _markers, true];
 
 private _jamPoses = _F18 getVariable ["MDJAM_PylonsJamPos", []];
 _jamPoses set [_selectedPylon, _pos];
-_F18 setVariable ["MDJAM_PylonsJamPos", _jamPoses];
+_F18 setVariable ["MDJAM_PylonsJamPos", _jamPoses, true];
 
 //Start Jamming
 [_F18, _pos, _selectedPylon, _radius] call MDJAM_fnc_jamVehicles;

@@ -27,4 +27,4 @@ for "_i" from 0 to 3 do {
 
 private _pylonModes = _F18 getVariable ["MDJAM_PylonModes", []];
 _pylonModes set [_selPylon, _modeIndex];
-_F18 setVariable ["MDJAM_PylonModes", _pylonModes];
+_F18 setVariable ["MDJAM_PylonModes", _pylonModes, true];
